@@ -34,3 +34,23 @@ aura component
 | force:hasSObjectName                    | <aura:attribute name="sObjectName" type="String" />          |
 | force:lightningQuickAction              | 实现`force:lightningQuickAction`界面的组件显示在带有标准动作控件（例如取消按钮）的面板中。这些组件可以在面板主体中显示和实现自己的控件，但不能影响标准控件。 |
 | force:lightningQuickActionWithoutHeader | 界面无额外的控件                                             |
+
+---
+
+### `<design:component>`
+
+```html
+<design:component label="Hello World">
+    <design:attribute name="subject" label="Subject" description="Name of the person you want to greet" />
+    <design:attribute name="greeting" label="Greeting" />
+    <design:supportedFormFactors>
+        <design:supportedFormFactor type="Large"/>
+        <design:supportedFormFactor type="Small"/>
+    </design:supportedFormFactors>
+    <sfdc:objects>
+        <sfdc:object>Custom__c</sfdc:object>
+        <sfdc:object>Opportunity</sfdc:object>
+    </sfdc:objects>
+</design:component>
+```
+

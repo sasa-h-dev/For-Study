@@ -24,7 +24,7 @@
 // 页面读取页面的属性{!v.属性名}
 {!v.firstName}
 // 页面调用js的方法{!c.方法名}
-{!v.getFirstName}
+{!c.getFirstName}
 ```
 
 ```javascript

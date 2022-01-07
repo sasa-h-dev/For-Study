@@ -167,3 +167,34 @@ handleTileClick() {
   Get object metadata, and get picklist values.
 
   
+
+---
+
+### Lightning Web 组件的 Jest 测试
+
+Promise.resove();
+
+---
+
+### SLDS Size
+
+| Sizing Class      | Responsive Breakpoint | Intended For   |
+| ----------------- | --------------------- | -------------- |
+| .slds-size        | default               | mobile         |
+| .slds-small-size  | >= 480px              | mobile/tablet  |
+| .slds-medium-size | >= 768px              | tablet/desktop |
+| .slds-large-size  | >= 1024px             | desktop        |
+
+---
+
+### targets
+
+```
+<targets>
+    <target>lightning__RecordPage</target>
+    <target>lightning__AppPage</target>
+    <target>lightning__HomePage</target>
+    <target>lightningCommunity__Page</target>
+</targets>
+```
+

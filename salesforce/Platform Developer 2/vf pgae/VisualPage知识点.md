@@ -74,7 +74,7 @@
 
 - DOM要素イベントに応じてコントローラーアクションをトリガーする。
 
-- ```java
+- ```html
   <!--  Page: -->
   <apex:page controller="exampleCon">
       <apex:form>
@@ -145,6 +145,13 @@
 - 为当前页面上的所有组件生成的所有消息
 - 如果组件不包含在页面中，大多数警告和错误消息仅显示在调试日志中。
 - ApexPages.addMessages(ex);
+- newAccount.Name.addMessage();
+
+#### `<apex:message>`
+
+特点：
+
+- 
 
 ---
 
@@ -238,6 +245,17 @@ public class exampleCon {
 // 上面的示例呈现以下 HTML：
 <script type='text/javascript' src='/resource/1233160164000/example_js'>
 ```
+
+---
+
+#### `$<apex:stylesheet>`
+
+```html
+// 引入样式
+<apex:stylesheet value="/resources/htdocs/css/basic.css"/>
+```
+
+
 
 ---
 
@@ -354,7 +372,7 @@ global static String getItemId(String objectName) { ... }
 
 ---
 
-#### Visualforce Remote Objects
+#### `<apex:remoteObjects >`
 
 ```html
 <apex:remoteObjects >
@@ -376,3 +394,42 @@ JavaScript Remoting:
 	• Supports complex server-side application logic
 	• Handles complex object relationships better
 	• Uses network connections (even) more efficiently
+
+---
+
+#### `<apex:commandLink>`
+
+```html
+<apex:commandLink action="{!save}" value="Save" id="theCommandLink"/>
+```
+
+action属性未指定时 点击只刷新画面
+
+---
+
+#### `<apex:dataTable>`
+
+```html
+<apex:page controller="dataTableCon" id="thePage">
+    <apex:dataTable value="{!accounts}" var="account" id="theTable"
+        rowClasses="odd,even" styleClass="tableClass">
+        <apex:facet name="caption">table caption</apex:facet>
+        <apex:facet name="header">table header</apex:facet>
+        <apex:facet name="footer">table footer</apex:facet>
+
+        <apex:column>
+            <apex:facet name="header">Name</apex:facet>
+            <apex:facet name="footer">column footer</apex:facet>
+            <apex:outputText value="{!account.name}"/>
+        </apex:column>
+
+        <apex:column>
+            <apex:facet name="header">Owner</apex:facet>
+            <apex:facet name="footer">column footer</apex:facet>
+            <apex:outputText value="{!account.owner.name}"/>
+        </apex:column>
+
+    </apex:dataTable>
+</apex:page>
+```
+

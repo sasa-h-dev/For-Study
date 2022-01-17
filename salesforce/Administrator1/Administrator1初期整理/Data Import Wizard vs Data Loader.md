@@ -13,3 +13,17 @@
 | It doesn’t require installation.                             | It requires installation.                          |
 |                                                              |                                                    |
 
+---
+
+Which set of Salesforce records is exported by choosing the "Export AII" option instead of "Export" in Data Loader?
+
+**A.** Records for a specified object and its child records.
+
+**B.** Records for all standard objects in the org.
+
+**C.** Records for a specified object including records in the recycle bin
+
+**D.** Records for a specified object and its parent records.
+
+Correct Answer: C
+

@@ -29,4 +29,28 @@
 
 ---
 
-### 
+The managers at Ursa Major Solar asked the administrator to quickly provide access to sales reports and dashboards. How can this be done?
+
+**A.** Search the AppExchange for free adoption report apps.
+
+**B.** Log a case to Salesforce Support
+
+**C.** Build reports and dashboards.
+
+**D.** Use the Salesforce Auto-Report Builder.
+
+**Correct Answer:** **A**
+
+---
+
+Which two solutions could an administrator find on the AppExchange to enhance their organization?
+Choose 2 answers
+A. Components
+
+B. Consultants
+
+C. Customers
+
+D. Communities
+
+Correct Answer: A,B

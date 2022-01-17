@@ -67,3 +67,32 @@ E.更新時間をスケジュールする
 A.フィールドの要約
 B.フィルターを追加する
 C.グループ化を追加する
+
+---
+
+Ursa Major Solar has selected report folders that are shared with a small group of users who are on Lightning Experience. The administrator needs to prevent these users from customizing the information in the reports.
+What should the administrator do to achieve this goal?
+
+**A.** Lock report filters.
+
+**B.** Change Field Level Security.
+
+**C.** Utilize Custom Report Types.
+
+**D.** Run the report as a specified user.
+
+Correct Answer: A
+
+---
+
+Where can be conditional highlighting be used? Choose 2 answers
+
+**A.** Matrix Reports
+
+**B.** Enhanced list views
+
+**C.** Tabular reports
+
+**D.** Summary reports
+
+Correct Answer: A,D

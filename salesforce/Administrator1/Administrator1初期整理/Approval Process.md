@@ -35,3 +35,5 @@ graph LR
 - Make sure that the assigned approver has access to read the records for the approval requests. For example, a user who can’t view expense records can’t view expense approval requests.
 - Approval processes that let users select an approver manually also let users select themselves as the approver
 
+---
+

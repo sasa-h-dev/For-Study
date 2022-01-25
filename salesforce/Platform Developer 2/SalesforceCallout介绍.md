@@ -113,7 +113,6 @@ global with sharing class MySOAPWebService {
 - 不能定义为interface
 - 枚举不能在 Web 服务方法中使用
 - 不能在trigger调用webservice
-- global class
 - global static method
 - 返回值不能是以下类型
   - Maps

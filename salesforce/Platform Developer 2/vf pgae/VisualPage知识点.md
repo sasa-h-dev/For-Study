@@ -433,3 +433,13 @@ action属性未指定时 点击只刷新画面
 </apex:page>
 ```
 
+---
+
+```javascript
+Visualforce.remoting.Manager.invokeAction(
+	'{!$RemoteAction.XXXController.methodName}',
+  param,
+  callbackfunction(){}
+)
+```
+

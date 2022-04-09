@@ -1,0 +1,62 @@
+### Sandbox 设置注意事项
+
+[文档](https://help.salesforce.com/s/articleView?id=sf.data_sandbox_implementation_tips.htm&type=5)
+
+- **[服务器和 ID](https://help.salesforce.com/s/articleView?id=data_sandbox_servers_and_ids.htm&type=5&language=zh_CN)**
+  Sandbox 和生产组织具有唯一组织 ID。Sandbox 复制引擎创建作为每次创建和刷新请求一部分的组织。
+- **[用户和联系人](https://help.salesforce.com/s/articleView?id=data_sandbox_users_and_contacts.htm&type=5&language=zh_CN)**
+  用户信息包含在 Sandbox 副本中或者为所有 Sandbox 类型刷新。
+- **[电子邮件传送能力](https://help.salesforce.com/s/articleView?id=data_sandbox_email_deliverability.htm&type=5&language=zh_CN)**
+  新的和刷新的 Sandbox 具有默认的电子邮件传送能力设置：仅系统电子邮件。
+- **[配置完全 Sandbox](https://help.salesforce.com/s/articleView?id=data_sandbox_configuring_full_sandboxes.htm&type=5&language=zh_CN)**
+  当您创建或刷新完全 Sandbox 时，您可以对其进行配置以便确定复制什么数据。最大限度地减少您包括的数据量可增加 Sandbox 复制速度。
+- **[Sandbox 访问权限注意事项](https://help.salesforce.com/s/articleView?id=data_sandbox_accessing_sandbox.htm&type=5&language=zh_CN)**
+  在创建 Sandbox 之前，请考虑以下访问权限更改，以便 Sandbox 用户可以充分利用 Sandbox 环境进行开发和 UAT 测试。
+- **[自定义和数据更改](https://help.salesforce.com/s/articleView?id=data_sandbox_customization_and_data_changes.htm&type=5&language=zh_CN)**
+  对生产组织的自定义和数据更改不会反映在 Sandbox 中。
+- **[多重身份验证](https://help.salesforce.com/s/articleView?id=data_sandbox_mfa.htm&type=5&language=zh_CN)**
+  Sandbox 环境暂时排除在将于 2022 年 2 月 1 日生效的多重身份验证 (MFA) 要求之外。但我们强烈建议对包括知识产权、客户数据或其他 Salesforce 生产数据的 Sandbox 使用 MFA。要在 Sandbox 环境中制定管理 MFA 的策略，请查看这些注意事项。
+- **[产品和服务排除](https://help.salesforce.com/s/articleView?id=data_sandbox_product_and_service_exclusions.htm&type=5&language=zh_CN)**
+  有些产品和服务在生产组织中启用，在 Sandbox 中默认禁用。有些可以重新启用，有些则不能。
+- **[其他服务差异](https://help.salesforce.com/s/articleView?id=data_sandbox_other_service_differences.htm&type=5&language=zh_CN)**
+  Sandbox 行为与 Salesforce 生产组织类似，但重要差别会影响您如何配置和测试 Sandbox 组织。
+
+---
+
+### 結合レポート制限
+
+[文档](https://help.salesforce.com/s/articleView?language=en_US&type=5&id=sf.reports_unavailable_with_joined_reports.htm)
+
+結合レポートでは、次の操作を実行できません。
+
+- バケット項目を追加する。
+- クロス条件を追加する。
+- [項目] ペインから [条件] ペインへ項目をドラッグアンドドロップする。(Drag and drop filters from the Fields pane on to the Filter pane.)
+- 条件付き強調表示を適用する。
+- 取引先レポート、活動レポート、リードレポート、商談レポートの階層を変更する。
+- 結合レポートに基づいてレポート作成スナップショットを作成する。
+- Salesforce Classic で結合レポートをスケジュールまたは登録する。
+
+実行できる
+
+- カスタム集計項目は結合形式
+- 結合レポートのブロックはマトリックス形式でフォーマットされる。
+
+---
+
+###  リードの取引開始
+
+正しい
+
+- リードの変換中にトリガが起動されます。必須のカスタム項目と入力規則が適用されます。
+- 最後に関連付けられたキャンペーンが商談の [主キャンペーンソース] 項目に適用される。
+- システムは、リードの標準項目を取引先、取引先責任者、商談の標準項目に自動的に対 応付けます。
+- 有効な承認プロセスに関連付けられているリード、または待機中のワークフローアクションがあるリードを変換することはできません。
+- リードにレコードタイプがある場合、リードを変換するユーザのデフォルトレコードタイプが、リードの変換中に作成されたレコードに割り当てられます。
+- リードを取引先責任または取引先に変換するプロセスで、重複するレコードが作成されることがあります。
+- リードを既存の取引先に変換した場合、自動的にはその取引先をフォローしません。ただし、リードを新しい取引先に変換すると、Chatter 設定の取引先に対するフィード追跡を無効にしていない限り、新しい取引先を自動的にフォローします。
+
+不正：
+
+- 有効な承認プロセスに関連付けられているリードを変換することができる。
+- 複数選択リスト項目のリード情報は、既存の取引先責任者の対応する項目を更新する。

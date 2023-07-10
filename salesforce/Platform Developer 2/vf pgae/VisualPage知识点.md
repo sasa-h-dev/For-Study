@@ -443,3 +443,101 @@ Visualforce.remoting.Manager.invokeAction(
 )
 ```
 
+---
+
+https://developer.salesforce.com/docs/atlas.en-us.224.0.pages.meta/pages/pages_variables.htm?_ga=2.181079535.912731606.1660867239-151797989.1660867239
+
+## 全局变量
+
+表达式 {! $GlobalName.fieldName }
+
+[全局变量](https://developer.salesforce.com/docs/atlas.en-us.224.0.pages.meta/pages/pages_variables_global.htm?_ga=2.66938214.912731606.1660867239-151797989.1660867239)
+
+- $User
+- $Label
+- $Organization
+- $Setup
+- $Page
+- 等等。。。
+
+---
+
+## 公式表达式
+
+- `&`字符是连接字符串 
+
+  - {! $User.FirstName & ' ' & $User.LastName }
+
+- 日期计算
+
+  - ```html
+    <p> Today's Date is {! TODAY() } </p>
+    <p> Next week it will be {! TODAY() + 7 } </p>
+    
+    <p>The year today is {! YEAR(TODAY()) }</p>
+    <p>Tomorrow will be day number  {! DAY(TODAY() + 1) }</p>
+    <p>Let's find a maximum: {! MAX(1,2,3,4,5,6,5,4,3,2,1) } </p>
+    <p>The square root of 49 is {! SQRT(49) }</p>
+    <p>Is it true?  {! CONTAINS('salesforce.com', 'force.com') }</p>
+    ```
+
+- 条件表达式
+
+  - ```html
+    <p>{! IF( CONTAINS('salesforce.com','force.com'),'Yep', 'Nope') }</p>
+    <p>{! IF( DAY(TODAY()) < 15,'Before the 15th', 'The 15th or after') }</p>
+    ```
+
+- 循环
+
+  - ```html
+    <apex:repeat value="{!contacts}" var="c">
+        <div>{!c.Title}</div>
+    </apex:repeat>
+    ```
+
+
+
+---
+
+### 使用静态资源
+
+```
+<apex:includeScript value="{! $Resource.jQuery }">
+<apex:stylesheet>
+<apex:image>
+```
+
+
+
+```html
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false">
+    <!-- Add static resources to page's <head> -->
+    <apex:stylesheet value="{!
+        URLFOR($Resource.jQueryMobile,'jquery/jquery.mobile-1.4.5.css')}"/>
+    <apex:includeScript value="{! $Resource.jQueryMobile }"/>
+    <apex:includeScript value="{!
+        URLFOR($Resource.jQueryMobile,'jquery/jquery.mobile-1.4.5.js')}"/>
+    <div style="margin-left: auto; margin-right: auto; width: 50%">
+        <!-- Display images directly referenced in a static resource -->
+        <h3>Images</h3>
+        <p>A hidden message:
+            <apex:image alt="eye" title="eye"
+                url="{!URLFOR($Resource.jQueryMobile, 'jquery/images/icons-png/eye-black.png')}"/>
+            <apex:image alt="heart" title="heart"
+                url="{!URLFOR($Resource.jQueryMobile, 'jquery/images/icons-png/heart-black.png')}"/>
+            <apex:image alt="cloud" title="cloud"
+                url="{!URLFOR($Resource.jQueryMobile, 'jquery/images/icons-png/cloud-black.png')}"/>
+        </p>
+    <!-- Display images referenced by CSS styles, all from a static resource. -->
+    <h3>Background Images on Buttons</h3>
+    <button class="ui-btn ui-shadow ui-corner-all 
+        ui-btn-icon-left ui-icon-action">action</button>
+    <button class="ui-btn ui-shadow ui-corner-all 
+        ui-btn-icon-left ui-icon-star">star</button>
+    </div>
+</apex:page>
+```
+
+
+

@@ -1,4 +1,4 @@
-### Sales App と Marketing App `14%`
+###  Sales App と Marketing App `14%`
 
 ##### 与えられたシナリオに従って、セールスプロセスの機能と影響を特定する
 
@@ -98,13 +98,14 @@ erDiagram
   ​	正常
 
   - Account
+
   - Contact
+
   - Opportunity
 
     启动個人取引先的情况下
 
   - 個人取引先
-  - 商談
 
 - 当Lead中自定义字段，Convert时也想对应的过去（Account，Contact，Opportunity）
   - Map Lead Fields（Lead => Fields & Relationships => Map Lead Fields）
@@ -142,7 +143,7 @@ erDiagram
     Campain ||--o{ Opportunity : loopup
     Campain ||--o{ Lead : loopup
     Campain ||--o{ Campain : loopup
-    Campain ||--o{ CampainMember : loopup
+    Campain ||--o{ CampainMember : masterDetail
 ```
 
 ```mermaid
